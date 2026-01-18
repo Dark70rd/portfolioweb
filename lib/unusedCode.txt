@@ -1,0 +1,366 @@
+  //void _startTextAnimation() {
+  //  Future.delayed(const Duration(seconds: 2), () {
+  //    setState(() {
+  //      _scrambledText = _scrambleText(_originalText);
+  //    });
+  //    Future.delayed(const Duration(seconds: 2), () {
+  //      setState(() {
+  //        _scrambledText = _originalText;
+  //      });
+  //      _startTextAnimation();
+  //    });
+  //  });
+  //}
+
+  //void _startTextAnimation() {
+  //  _scrambledText = List.filled(_originalText.length, '*').join();
+  //  for (int i = 0; i < _originalText.length; i++) {
+  //    Future.delayed(Duration(milliseconds: 200 * i), () {
+  //      setState(() {
+  //        _scrambledText = _scrambledText.substring(0, i) +
+  //            _originalText[i] +
+  //            _scrambledText.substring(i + 1);
+  //      });
+  //    });
+  //  }
+  //}
+
+  //String _scrambleText(String text) {
+  //  // Implement your text scrambling logic here
+  //  // For example, you can shuffle the characters randomly
+  //  List<String> characters = text.split('');
+  //  characters.shuffle();
+  //  return characters.join('');
+  //}
+
+ void _startTextAnimation0() {
+    Random random = Random();
+    _scrambledText0 = _originalText0;
+    for (int i = 0; i < _originalText0.length; i++) {
+      for (int j = 0; j < 5; j++) {
+        // Change this number to control the number of shuffles
+        _timer0 = Timer(Duration(milliseconds: 200 * j), () {
+          setState(() {
+            _scrambledText0 = _scrambledText0.substring(0, i) +
+                (_originalText0[i] == ' ' // if the original charecter is space
+                    ? ' ' // Preserve spaces
+                    : String.fromCharCode(random.nextInt(26) +
+                        (_originalText0[i].toUpperCase() == _originalText0[i]
+                            ? 65
+                            : 95))) + // Generate a random uppercase ASCII character
+                _scrambledText0.substring(i + 1);
+          });
+        });
+      }
+      _timer0 = Timer(const Duration(milliseconds: 1000), () {
+        // Wait for a second before locking the character
+        setState(() {
+          _scrambledText0 = _scrambledText0.substring(0, i) +
+              _originalText0[i] +
+              _scrambledText0.substring(i + 1);
+        });
+      });
+    }
+    //Future.delayed(const Duration(seconds: 2),
+    //    _startTextAnimation); // Repeat the animation every 2 seconds
+  }
+
+  void _stopTextAnimation0() {
+    _timer0?.cancel();
+  }
+
+  void _startTextAnimation1() {
+    int center = _originalText1.length ~/ 2;
+    Timer? leftTimer;
+    Timer? rightTimer;
+
+    // Make the text disappear
+    for (int i = 0; i <= center; i++) {
+      leftTimer = Timer(Duration(milliseconds: 100 * i), () {
+        setState(() {
+          _scrambledText1 = _scrambledText1.substring(0, center - i) +
+              ' ' +
+              _scrambledText1.substring(center - i + 1);
+        });
+      });
+
+      rightTimer = Timer(Duration(milliseconds: 100 * i), () {
+        setState(() {
+          _scrambledText1 = _scrambledText1.substring(0, center + i) +
+              ' ' +
+              _scrambledText1.substring(center + i + 1);
+        });
+      });
+    }
+
+    // Make the text reappear
+    Timer(const Duration(seconds: 1), () {
+      for (int i = 0; i <= center; i++) {
+        leftTimer = Timer(Duration(milliseconds: 100 * i), () {
+          setState(() {
+            _scrambledText1 = _scrambledText1.substring(0, center - i) +
+                _originalText1[center - i] +
+                _scrambledText1.substring(center - i + 1);
+          });
+        });
+
+        rightTimer = Timer(Duration(milliseconds: 100 * i), () {
+          setState(() {
+            _scrambledText1 = _scrambledText1.substring(0, center + i) +
+                _originalText1[center + i] +
+                _scrambledText1.substring(center + i + 1);
+          });
+        });
+      }
+    });
+  }
+
+  void _stopTextAnimation1() {
+    _timer1?.cancel();
+  }
+
+    String _scrambledText0 = 'Hash Effect!';
+  String _scrambledText1 = 'Wave Effect!';
+  final String _originalText0 = 'Hash Effect!';
+  final String _originalText1 = 'Wave Effect!';
+
+    late Timer _timer0;
+  late Timer _timer1;
+
+      _timer0 = Timer(Duration.zero, () {});
+    _timer1 = Timer(Duration.zero, () {});
+
+        _timer0.cancel();
+    _timer1.cancel();
+
+
+    //class _HashAnimatedTextWidgetState extends State<HashAnimatedTextWidget> {
+//  late String _scrambledText;
+//  late String _originalText;
+//  late Timer _timer;
+//  late Color _color;
+//  double _opacity = 1.0;
+//
+//  @override
+//  void initState() {
+//    super.initState();
+//    _scrambledText = widget.text;
+//    _originalText = widget.text;
+//    _color = widget.textcolor;
+//    _timer = Timer(Duration.zero, () {});
+//    //_startTextAnimation();
+//    Future.delayed(const Duration(milliseconds: 100), () {
+//      setState(() {
+//        _opacity = 1.0;
+//      });
+//    });
+//  }
+//
+//  void _startTextAnimation() {
+//    Random random = Random();
+//    _scrambledText = _originalText;
+//    int j = 0;
+//    _timer = Timer.periodic(const Duration(milliseconds: 100), (timer) {
+//      if (j < 10) {
+//        setState(() {
+//          _scrambledText = String.fromCharCodes(
+//              _scrambledText.runes.toList().map((int rune) {
+//            var character = String.fromCharCode(rune);
+//            return character == ' ' // if the original character is space
+//                ? rune // Preserve spaces
+//                : random.nextInt(26) +
+//                    (character.toUpperCase() == character
+//                        ? 65
+//                        : 97); // Generate a random uppercase ASCII character
+//          }));
+//        });
+//        j++;
+//      } else if (j < 20) {
+//        setState(() {
+//          _scrambledText = _originalText;
+//        });
+//        j++;
+//      } else {
+//        timer.cancel();
+//      }
+//    });
+//  }
+//
+//  void _stopTextAnimation() {
+//    _timer.cancel();
+//  }
+//
+//  @override
+//  Widget build(BuildContext context) {
+//    return MouseRegion(
+//      onHover: (event) => _startTextAnimation(),
+//      onExit: (event) => _stopTextAnimation(),
+//      child: AnimatedOpacity(
+//        opacity: _opacity,
+//        duration: const Duration(milliseconds: 500),
+//        child: Text(
+//          _scrambledText,
+//          style: TextStyle(
+//            fontFamily: 'Courier',
+//            color: _color,
+//            fontSize: 24,
+//            fontWeight: FontWeight.bold,
+//          ),
+//        ),
+//      ),
+//    );
+//  }
+//
+//  @override
+//  void dispose() {
+//    _timer.cancel();
+//    super.dispose();
+//  }
+//}
+
+
+        //if (_scrollController.offset > 30.0) {
+        //  // Adjust this value as needed
+        //  setState(() {
+        //    _isVisible = true;
+        //  });
+        //} else {
+        //  setState(() {
+        //    _isVisible = false;
+        //  });
+        //}
+
+        Expanded(
+              child: Container(
+                child: Stack(
+                  children: [
+                    //image
+                    Positioned(
+                      top: MediaQuery.of(context).size.height * 0.02,
+                      left: 20.0,
+                      child: Container(
+                        height: MediaQuery.of(context).size.height * 0.60,
+                        width: MediaQuery.of(context).size.width * 0.5,
+                        //color: Colors.redAccent,
+                        child: Image(
+                          fit: BoxFit.contain,
+                          image: NetworkImage(imageList[0]),
+                        ),
+                      ),
+                    ),
+
+                    //short description
+                    Positioned(
+                      top: MediaQuery.of(context).size.height / 6,
+                      right: 10.0,
+                      child: Container(
+                        alignment: Alignment.center,
+                        height: MediaQuery.of(context).size.height * 0.18,
+                        width: MediaQuery.of(context).size.width * 0.35,
+                        color: Colors.grey.shade900.withOpacity(1.0),
+                        child: Wrap(
+                          alignment: WrapAlignment.center,
+                          children: [
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 16.0),
+                              child: CustomText(
+                                text: "projectDesc",
+                                textsize: 27,
+                                color: Colors.grey,
+                                fontWeight: FontWeight.w700,
+                                letterSpacing: 1.75,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    // Project Tiitle
+                    Positioned(
+                      top: 16.0,
+                      right: 10.0,
+                      child: Container(
+                        height: MediaQuery.of(context).size.height * 0.10,
+                        width: MediaQuery.of(context).size.width * 0.25,
+                        //color: Colors.indigo,
+                        child: Wrap(
+                          // mainAxisAlignment: MainAxisAlignment.end,
+                          alignment: WrapAlignment.end,
+                          children: [
+                            CustomText(
+                              text: "projectTitle",
+                              textsize: 27,
+                              color: Colors.grey,
+                              fontWeight: FontWeight.w700,
+                              letterSpacing: 1.75,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    //project resources
+                    Positioned(
+                      top: MediaQuery.of(context).size.height * 0.36,
+                      right: 10.0,
+                      child: Container(
+                        height: MediaQuery.of(context).size.height * 0.08,
+                        width: MediaQuery.of(context).size.width * 0.25,
+                        // color: Colors.indigo,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            CustomText(
+                              text: tech1,
+                              textsize: 14,
+                              color: Colors.grey,
+                              letterSpacing: 1.75,
+                              fontWeight: FontWeight.normal,
+                            ),
+                            const SizedBox(
+                              width: 16.0,
+                            ),
+                            CustomText(
+                              text: tech2,
+                              textsize: 14,
+                              color: Colors.grey,
+                              letterSpacing: 1.75,
+                              fontWeight: FontWeight.normal,
+                            ),
+                            const SizedBox(
+                              width: 16.0,
+                            ),
+                            CustomText(
+                              text: tech3,
+                              textsize: 14,
+                              color: Colors.grey,
+                              letterSpacing: 1.75,
+                              fontWeight: FontWeight.normal,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+
+                    //github link
+                    Positioned(
+                        top: MediaQuery.of(context).size.height * 0.42,
+                        right: 10.0,
+                        child: Container(
+                          height: MediaQuery.of(context).size.height * 0.08,
+                          width: MediaQuery.of(context).size.width * 0.25,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              IconButton(
+                                icon: const FaIcon(FontAwesomeIcons.github),
+                                color: Colors.white.withOpacity(0.3),
+                                onPressed: () {},
+                              ),
+                            ],
+                          ),
+                        )),
+                  ],
+                ),
+              ),
+            ),
