@@ -29,22 +29,31 @@ class MyPortfolioApp extends StatelessWidget {
       designSize: const Size(1440, 900),
       minTextAdapt: true,
       splitScreenMode: true,
-      builder: (_, __) {
+      builder: (context, child) {
         return MaterialApp(
           title: 'My Portfolio',
           theme: AppTheme.lightTheme,
           debugShowCheckedModeBanner: false,
-          home: LayoutBuilder(
-            builder: (context, constraints) {
-              // Switch to mobile layout for screens smaller than 800px width
-              if (constraints.maxWidth < 800) {
-                return const MobilePortfolioScreen();
-              } else {
-                return const MyPortfolioScreen();
-              }
-            },
-          ),
+          home: ResponsiveHome(),
         );
+      },
+    );
+  }
+}
+
+class ResponsiveHome extends StatelessWidget {
+  const ResponsiveHome({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        // Switch to mobile layout for screens smaller than 800px width
+        if (constraints.maxWidth < 800) {
+          return const MobilePortfolioScreen();
+        } else {
+          return const MyPortfolioScreen();
+        }
       },
     );
   }
@@ -102,7 +111,7 @@ class MyPortfolioScreen extends StatefulWidget {
 class _MyPortfolioScreenState extends State<MyPortfolioScreen>
     with SingleTickerProviderStateMixin {
   late AnimationController _noiseController;
-  ScrollController _scrollController = ScrollController();
+  final ScrollController _scrollController = ScrollController();
   Timer? _scrollEnableTimer;
   double _opacity1 = 0.0;
   double _opacity2 = 0.0;
@@ -213,7 +222,7 @@ class _MyPortfolioScreenState extends State<MyPortfolioScreen>
                       right: scrwidth * AppConstants.horizontalPaddingRatio),
                   child: Column(
                     children: <Widget>[
-                      Container(
+                      SizedBox(
                           height: scrheight * AppConstants.titleSectionHeight,
                           width: scrwidth,
                           child: Padding(
@@ -227,7 +236,7 @@ class _MyPortfolioScreenState extends State<MyPortfolioScreen>
                       AnimatedOpacity(
                         opacity: _opacity1,
                         duration: AppConstants.fadeAnimationDuration,
-                        child: Container(
+                        child: SizedBox(
                           height: scrheight * AppConstants.aboutSectionHeight,
                           width: scrwidth,
                           child: const AboutPage(),
@@ -236,7 +245,7 @@ class _MyPortfolioScreenState extends State<MyPortfolioScreen>
                       AnimatedOpacity(
                         opacity: _opacity2,
                         duration: AppConstants.fadeAnimationDuration,
-                        child: Container(
+                        child: SizedBox(
                           height: scrheight * AppConstants.serviceSectionHeight,
                           width: scrwidth,
                           child: const ServicePage(),
@@ -245,17 +254,17 @@ class _MyPortfolioScreenState extends State<MyPortfolioScreen>
                       AnimatedOpacity(
                         opacity: _opacity3,
                         duration: AppConstants.fadeAnimationDuration,
-                        child: Container(
+                        child: SizedBox(
                           height:
                               scrheight * AppConstants.showcaseSectionHeight,
                           width: scrwidth,
-                          child: const Expanded(child: ShowcasePage()),
+                          child: const ShowcasePage(),
                         ),
                       ),
                       AnimatedOpacity(
                         opacity: _opacity4,
                         duration: AppConstants.fadeAnimationDuration,
-                        child: Container(
+                        child: SizedBox(
                           height: scrheight * AppConstants.contactSectionHeight,
                           width: scrwidth,
                           child: const ContactPageView(),

@@ -41,7 +41,6 @@ class AppTheme {
         primary: AppColors.primary,
         secondary: AppColors.accent,
         surface: AppColors.surface,
-        background: AppColors.background,
       ),
       textTheme: base.textTheme.copyWith(
         headlineLarge: TextStyle(

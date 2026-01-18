@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'projectShowcase_model.dart';
 import 'page_header.dart';
@@ -56,7 +54,8 @@ class _ShowcasePageState extends State<ShowcasePage> {
           ),
           Align(
             alignment: Alignment.centerLeft,
-            child: Expanded(
+            child: SizedBox(
+              width: double.infinity,
               child: Padding(
                 padding: EdgeInsets.all(16.w),
                 child: DefaultTextStyle(
@@ -101,26 +100,21 @@ class _ShowcasePageState extends State<ShowcasePage> {
             ),
           ),
           SizedBox(height: 70.h),
-          Expanded(
-            child: ProjectShowcase(
+          ProjectShowcase(
               imageUrl: 'https://picsum.photos/id/8/500/300/?grayscale&blur=2',
               shortDescription: 'This is a short description of the project.',
               projectTitle: 'Project Title',
               projectResources: const ['Flutter', 'Dart', 'Firebase'],
               githubLink: 'https://github.com/username/project',
             ),
-          ),
-          Expanded(
-            child: ProjectShowcase(
+          ProjectShowcase(
               imageUrl: 'https://picsum.photos/id/7/500/300/?grayscale&blur=2',
               shortDescription: 'This is a short description of the project.',
               projectTitle: 'Project Title',
               projectResources: const ['Flutter', 'Dart', 'Firebase'],
               githubLink: 'https://github.com/username/project',
             ),
-          ),
         ],
       ),
-    );
-  }
+    );  }
 }

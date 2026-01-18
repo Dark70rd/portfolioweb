@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'page_header.dart';
 
@@ -9,7 +7,7 @@ class ServicePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return SingleChildScrollView(
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -22,7 +20,8 @@ class ServicePage extends StatelessWidget {
           ),
           Align(
             alignment: Alignment.centerLeft,
-            child: Expanded(
+            child: SizedBox(
+              width: double.infinity,
               child: Padding(
                 padding: EdgeInsets.all(16.w),
                 child: DefaultTextStyle(

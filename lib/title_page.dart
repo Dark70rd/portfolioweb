@@ -19,16 +19,14 @@ class _AnimatedTextWidgetState extends State<AnimatedTextWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Column(
+    return Column(
         children: [
           SizedBox(
             height: 50.h,
           ),
           Row(
             children: [
-              Expanded(
-                child: AnimatedTextKit(
+              AnimatedTextKit(
                   repeatForever: false,
                   totalRepeatCount: 1,
                   onFinished: () {
@@ -47,14 +45,12 @@ class _AnimatedTextWidgetState extends State<AnimatedTextWidget> {
                     ),
                   ],
                 ),
-              ),
-            ],
-          ),
+              ],
+            ),
           if (showSecondAnimation)
             Row(
               children: [
-                Expanded(
-                  child: AnimatedTextKit(
+                AnimatedTextKit(
                     repeatForever: false,
                     totalRepeatCount: 1,
                     onFinished: () {
@@ -73,7 +69,6 @@ class _AnimatedTextWidgetState extends State<AnimatedTextWidget> {
                       ),
                     ],
                   ),
-                ),
               ],
             ),
           //const SizedBox(
@@ -82,8 +77,7 @@ class _AnimatedTextWidgetState extends State<AnimatedTextWidget> {
           if (showThirdAnimation)
             Row(
               children: [
-                Expanded(
-                  child: AnimatedTextKit(
+                AnimatedTextKit(
                     repeatForever: false,
                     totalRepeatCount: 1,
                     onFinished: () {
@@ -102,7 +96,6 @@ class _AnimatedTextWidgetState extends State<AnimatedTextWidget> {
                       ),
                     ],
                   ),
-                ),
               ],
             ),
           SizedBox(
@@ -172,7 +165,7 @@ class _AnimatedTextWidgetState extends State<AnimatedTextWidget> {
                   AnimatedOpacity(
                     opacity: showFifthAnimation ? 1.0 : 0.0,
                     duration: const Duration(seconds: 1),
-                    child: Container(
+                    child: SizedBox(
                       width: 0.1.sw,
                       height: 0.07.sh,
                       child: OutlinedButton(
@@ -196,7 +189,6 @@ class _AnimatedTextWidgetState extends State<AnimatedTextWidget> {
               ),
             )
         ],
-      ),
-    );
+      );
   }
 }

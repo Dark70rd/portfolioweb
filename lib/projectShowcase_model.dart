@@ -22,13 +22,16 @@ class ProjectShowcase extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        // Image
-        Positioned(
+    return SizedBox(
+      height: 0.65.sh,
+      width: double.infinity,
+      child: Stack(
+        children: [
+          // Image
+          Positioned(
           top: 0.02.sh,
           left: 20.w,
-          child: Container(
+          child: SizedBox(
             height: 0.60.sh,
             width: 0.5.sw,
             child: Image.network(
@@ -103,7 +106,7 @@ class ProjectShowcase extends StatelessWidget {
         Positioned(
           top: 16.h,
           right: 10.w,
-          child: Container(
+          child: SizedBox(
             height: 0.10.sh,
             width: 0.25.sw,
             child: Wrap(
@@ -125,7 +128,7 @@ class ProjectShowcase extends StatelessWidget {
         Positioned(
           top: 0.36.sh,
           right: 10.w,
-          child: Container(
+          child: SizedBox(
             height: 0.08.sh,
             width: 0.25.sw,
             child: Row(
@@ -150,7 +153,7 @@ class ProjectShowcase extends StatelessWidget {
         Positioned(
           top: 0.42.sh,
           right: 10.w,
-          child: Container(
+          child: SizedBox(
             height: 0.08.sh,
             width: 0.25.sw,
             child: Row(
@@ -171,6 +174,7 @@ class ProjectShowcase extends StatelessWidget {
           ),
         ),
       ],
+      ),
     );
   }
 }

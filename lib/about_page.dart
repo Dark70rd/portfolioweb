@@ -32,9 +32,9 @@ class AboutPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return SingleChildScrollView(
       child: Column(
-        mainAxisSize: MainAxisSize.max,
+        mainAxisSize: MainAxisSize.min,
         children: [
           const PageHeader(
             title:
@@ -45,7 +45,8 @@ class AboutPage extends StatelessWidget {
           ),
           Align(
             alignment: Alignment.centerLeft,
-            child: Expanded(
+            child: SizedBox(
+              width: double.infinity,
               child: Padding(
                 padding: EdgeInsets.all(16.w),
                 child: DefaultTextStyle(
@@ -107,12 +108,12 @@ class AboutPage extends StatelessWidget {
               left: 16.w,
               right: 16.w,
             ),
-            child: Container(
+            child: SizedBox(
               height: 0.18.sh,
               width: 1.sw,
               child: Wrap(
                 children: [
-                  Container(
+                  SizedBox(
                     width: 0.20.sw,
                     height: 0.18.sh,
                     child: Column(
@@ -124,7 +125,7 @@ class AboutPage extends StatelessWidget {
                       ],
                     ),
                   ),
-                  Container(
+                  SizedBox(
                     width: 0.15.sw,
                     height: 0.18.sh,
                     child: Column(
@@ -135,7 +136,7 @@ class AboutPage extends StatelessWidget {
                         technology(context, "Git - Github"),
                       ],
                     ),
-                  )
+                  ),
                 ],
               ),
             ),

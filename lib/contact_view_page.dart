@@ -9,8 +9,9 @@ class ContactPageView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return SingleChildScrollView(
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
           const PageHeader(
             title:
@@ -21,7 +22,8 @@ class ContactPageView extends StatelessWidget {
           ),
           Align(
             alignment: Alignment.centerLeft,
-            child: Expanded(
+            child: SizedBox(
+              width: double.infinity,
               child: Padding(
                 padding: EdgeInsets.all(16.w),
                 child: DefaultTextStyle(
@@ -68,7 +70,7 @@ class ContactPageView extends StatelessWidget {
             padding: EdgeInsets.only(left: 15.w, top: 40.h),
             child: Align(
               alignment: Alignment.centerLeft,
-              child: Container(
+              child: SizedBox(
                 width: 0.1.sw,
                 height: 0.07.sh,
                 child: OutlinedButton(
