@@ -26,9 +26,12 @@ class _MobilePortfolioScreenState extends State<MobilePortfolioScreen> {
       backgroundColor: Colors.black,
       appBar: AppBar(
         backgroundColor: Colors.black,
+        surfaceTintColor: Colors.transparent,
         elevation: 0,
+        centerTitle: false,
+        titleSpacing: 36.w,
         title: Image.asset(
-          'assets/images/dark-bg-icon.png',
+          'assets/images/dark-bg-icon-crop.png',
           fit: BoxFit.cover,
           height: 40.h,
           color: Colors.grey,
@@ -36,99 +39,92 @@ class _MobilePortfolioScreenState extends State<MobilePortfolioScreen> {
             return Icon(
               Icons.code,
               color: Colors.grey,
-              size: 90.sp,
+              size: 80.sp,
             );
           },
         ),
-        leading: IconButton(
-          icon: Icon(Icons.menu, color: Colors.grey, size: 90.sp),
-          onPressed: () {
-            _scaffoldKey.currentState?.openDrawer();
-          },
-        ),
       ),
-      drawer: Drawer(
-        backgroundColor: Colors.grey.shade900,
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: [
-            DrawerHeader(
-              decoration: const BoxDecoration(
-                color: Colors.black,
-              ),
+      body: Stack(
+        clipBehavior: Clip.hardEdge,
+        fit: StackFit.expand,
+        children: [
+          SingleChildScrollView(
+            child: Padding(
+              padding: EdgeInsets.only(left: 180.w, right: 60.w),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    'DARK70RD',
-                    style: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 72.sp,
-                      fontWeight: FontWeight.bold,
-                    ),
+                  MobileTitlePage(
+                    onAnimationComplete: () {
+                      setState(() {
+                        _showOtherPages = true;
+                      });
+                    },
                   ),
-                  SizedBox(height: 8.h),
-                  Text(
-                    'Portfolio',
-                    style: TextStyle(
-                      color: Colors.grey.shade600,
-                      fontSize: 42.sp,
-                    ),
-                  ),
+                  if (_showOtherPages) ...[
+                    const MobileAboutPage(),
+                    const MobileServicesPage(),
+                    const MobileShowcasePage(),
+                    const MobileContactPage(),
+                    const MobileFooter(),
+                  ],
                 ],
               ),
             ),
-            _buildDrawerItem(Icons.home, 'Home', 0),
-            _buildDrawerItem(Icons.person, 'About', 1),
-            _buildDrawerItem(Icons.work, 'Services', 2),
-            _buildDrawerItem(Icons.code, 'Projects', 3),
-            _buildDrawerItem(Icons.contact_mail, 'Contact', 4),
-            Divider(color: Colors.grey.shade700),
-            ListTile(
-              leading: Icon(FontAwesomeIcons.github, color: Colors.grey, size: 60.sp),
-              title: Text('GitHub', style: TextStyle(color: Colors.grey, fontSize: 48.sp)),
-              onTap: () {
-                // Add GitHub link
-              },
+          ),
+          // Fixed left sidebar
+          Positioned(
+            left: 0,
+            top: 0,
+            bottom: 0,
+            child: Container(
+              height: double.infinity,
+              width: 180.w,
+              color: Colors.transparent,
+              child: Padding(
+                padding: EdgeInsets.only(left: 8.0.w, right: 8.0.w),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Spacer(),
+                    // GitHub icon button
+                    IconButton(
+                      onPressed: () {
+                        // TODO: Add url_launcher to open https://github.com/Dark70rd
+                      },
+                      icon: const FaIcon(FontAwesomeIcons.github),
+                      iconSize: 68.sp,
+                      color: Colors.grey.shade500,
+                    ),
+                    SizedBox(height: 24.h),
+                    // Email icon button
+                    CircleAvatar(
+                      backgroundColor: Colors.grey.shade500,
+                      radius: 38.sp,
+                      child: IconButton(
+                        padding: EdgeInsets.zero,
+                        onPressed: () {
+                          // TODO: Add url_launcher to open mailto:your.email@example.com
+                        },
+                        icon: const Icon(Icons.email),
+                        iconSize: 58.sp,
+                        color: Colors.black,
+                      ),
+                    ),
+                    SizedBox(height: 24.h),
+                    // Vertical line
+                    Expanded(
+                      child: Container(
+                        width: 8.w,
+                        color: Colors.grey,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            MobileTitlePage(
-              onAnimationComplete: () {
-                setState(() {
-                  _showOtherPages = true;
-                });
-              },
-            ),
-            if (_showOtherPages) ...[
-              const MobileAboutPage(),
-              const MobileServicesPage(),
-              const MobileShowcasePage(),
-              const MobileContactPage(),
-              const MobileFooter(),
-            ],
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildDrawerItem(IconData icon, String title, int index) {
-    return ListTile(
-      leading: Icon(icon, color: Colors.grey, size: 72.sp),
-      title: Text(
-        title,
-        style: TextStyle(color: Colors.grey, fontSize: 48.sp),
-      ),
-      onTap: () {
-        Navigator.pop(context);
-        // Add scroll to section logic here if needed
-      },
     );
   }
 }

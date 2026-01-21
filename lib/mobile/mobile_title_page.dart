@@ -37,10 +37,10 @@ class _MobileTitlePageState extends State<MobileTitlePage> {
             },
             animatedTexts: [
               TypewriterAnimatedText(
-                ' Greetings, mortals.',
+                'Greetings, mortals.',
                 textStyle: TextStyle(
                   color: Colors.grey,
-                  fontSize: 54.sp,
+                  fontSize: 104.sp,
                   fontWeight: FontWeight.w300,
                 ),
               ),
@@ -61,7 +61,7 @@ class _MobileTitlePageState extends State<MobileTitlePage> {
                   'I am DARK70RD.',
                   textStyle: TextStyle(
                     color: Colors.grey,
-                    fontSize: 96.sp,
+                    fontSize: 176.sp,
                     fontWeight: FontWeight.w300,
                   ),
                 ),
@@ -82,7 +82,7 @@ class _MobileTitlePageState extends State<MobileTitlePage> {
                   'Ready to unleash your digital desires?',
                   textStyle: TextStyle(
                     color: Colors.grey,
-                    fontSize: 72.sp,
+                    fontSize: 102.sp,
                     fontWeight: FontWeight.w300,
                   ),
                 ),
@@ -107,18 +107,19 @@ class _MobileTitlePageState extends State<MobileTitlePage> {
                   speed: const Duration(milliseconds: 15),
                   textStyle: TextStyle(
                     color: Colors.grey,
-                    fontSize: 48.sp,
+                    fontSize: 68.sp,
                     fontWeight: FontWeight.w300,
                     height: 1.5,
                   ),
                 ),
               ],
             ),
-          if (showFifthAnimation) SizedBox(height: 30.h),
+          if (showFifthAnimation) SizedBox(height: 40.h),
           if (showFifthAnimation)
             AnimatedOpacity(
               opacity: showFifthAnimation ? 1.0 : 0.0,
               duration: const Duration(seconds: 1),
+              curve: Curves.easeIn,
               child: SizedBox(
                 width: double.infinity,
                 height: 50.h,
@@ -134,13 +135,13 @@ class _MobileTitlePageState extends State<MobileTitlePage> {
                     'Summon Me',
                     style: TextStyle(
                       color: Colors.grey,
-                      fontSize: 48.sp,
+                      fontSize: 68.sp,
                     ),
                   ),
                 ),
               ),
             ),
-          SizedBox(height: 40.h),
+          SizedBox(height: 60.h),
         ],
       ),
     );

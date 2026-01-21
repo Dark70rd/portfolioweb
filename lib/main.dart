@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'dart:math';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:my_portfolio_web/contact_view_page.dart';
@@ -159,10 +160,45 @@ class _MyPortfolioScreenState extends State<MyPortfolioScreen>
   }
 
   @override
+  void dispose() {
+    _scrollController.dispose();
+    _noiseController.dispose();
+    _scrollEnableTimer?.cancel();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final scrheight = MediaQuery.of(context).size.height;
     final scrwidth = MediaQuery.of(context).size.width;
-    return Container(
+    return Shortcuts(
+      shortcuts: <LogicalKeySet, Intent>{
+        LogicalKeySet(LogicalKeyboardKey.arrowDown): ScrollIntent(direction: AxisDirection.down),
+        LogicalKeySet(LogicalKeyboardKey.arrowUp): ScrollIntent(direction: AxisDirection.up),
+        LogicalKeySet(LogicalKeyboardKey.pageDown): ScrollIntent(direction: AxisDirection.down),
+        LogicalKeySet(LogicalKeyboardKey.pageUp): ScrollIntent(direction: AxisDirection.up),
+      },
+      child: Actions(
+        actions: <Type, Action<Intent>>{
+          ScrollIntent: CallbackAction<ScrollIntent>(
+            onInvoke: (ScrollIntent intent) {
+              if (_scrollPhysics is AlwaysScrollableScrollPhysics) {
+                final scrollAmount = intent.direction == AxisDirection.down 
+                    ? (intent.direction == AxisDirection.down ? 100.0 : scrheight)
+                    : (intent.direction == AxisDirection.up ? -100.0 : -scrheight);
+                _scrollController.animateTo(
+                  _scrollController.offset + scrollAmount,
+                  duration: const Duration(milliseconds: 200),
+                  curve: Curves.easeOut,
+                );
+              }
+              return null;
+            },
+          ),
+        },
+        child: Focus(
+          autofocus: true,
+          child: Container(
       color: Colors.black,
       child: AnimatedBuilder(
         animation: _noiseController,
@@ -350,16 +386,11 @@ class _MyPortfolioScreenState extends State<MyPortfolioScreen>
               ),
             ],
           ),
-        ),
-      ),
-    );
-  }
-
-  @override
-  void dispose() {
-    _noiseController.dispose();
-    _scrollController.dispose();
-    _scrollEnableTimer?.cancel();
-    super.dispose();
+        ), // End Scaffold
+      ), // End CustomPaint child
+      ), // End AnimatedBuilder child
+    ), // End Container
+    ), // End Focus
+    ); // End Actions/Shortcuts
   }
 }
