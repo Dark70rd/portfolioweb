@@ -3,6 +3,7 @@ import 'dart:async';
 import 'dart:math';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+// ignore: library_private_types_in_public_api
 class HashAnimatedTextWidget extends StatefulWidget {
   final String text;
   final Color textcolor;

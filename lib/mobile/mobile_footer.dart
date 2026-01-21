@@ -8,39 +8,36 @@ class MobileFooter extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      padding: EdgeInsets.all(20.w),
+      padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 30.h),
       color: Colors.transparent,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            'Designed and built by Dark70rd',
-            style: TextStyle(
-              color: Colors.grey,
-              fontSize: 14.sp,
+      child: Center(
+        child: Wrap(
+          alignment: WrapAlignment.center,
+          crossAxisAlignment: WrapCrossAlignment.center,
+          spacing: 8.w,
+          children: [
+            Text(
+              'Designed and built by Dark70rd',
+              style: TextStyle(
+                color: Colors.grey,
+                fontSize: 14.sp,
+              ),
+              textAlign: TextAlign.center,
             ),
-            textAlign: TextAlign.center,
-          ),
-          SizedBox(height: 8.h),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(
-                Icons.bolt_outlined,
-                color: const Color.fromARGB(255, 105, 90, 205).withOpacity(0.6),
-                size: 18.sp,
+            Icon(
+              Icons.bolt_outlined,
+              color: const Color.fromARGB(255, 105, 90, 205).withValues(alpha: 0.6),
+              size: 16.sp,
+            ),
+            Text(
+              'Flutter',
+              style: TextStyle(
+                color: Colors.grey,
+                fontSize: 14.sp,
               ),
-              SizedBox(width: 4.w),
-              Text(
-                'Flutter',
-                style: TextStyle(
-                  color: Colors.grey,
-                  fontSize: 14.sp,
-                ),
-              ),
-            ],
-          ),
-        ],
+            ),
+          ],
+        ),
       ),
     );
   }

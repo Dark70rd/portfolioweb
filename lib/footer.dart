@@ -25,7 +25,7 @@ class Footer extends StatelessWidget {
               ),
             ),
             Icon(Icons.bolt_outlined,
-                color: const Color.fromARGB(255, 105, 90, 205).withOpacity(0.6),
+                color: const Color.fromARGB(255, 105, 90, 205).withValues(alpha: 0.6),
                 size: 20.sp),
             Text(
               'Flutter',

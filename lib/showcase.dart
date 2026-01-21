@@ -39,6 +39,7 @@ class CustomText extends StatelessWidget {
   }
 }
 
+// ignore: library_private_types_in_public_api
 class _ShowcasePageState extends State<ShowcasePage> {
   @override
   Widget build(BuildContext context) {

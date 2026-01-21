@@ -12,10 +12,11 @@ class MobileContactPage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          // Header
           Text(
-            'Contact',
+            'Summon DARKLORD if You Dare (But Only for Worthy Inquiries)',
             style: TextStyle(
-              fontSize: 32.sp,
+              fontSize: 24.sp,
               fontWeight: FontWeight.bold,
               color: Colors.grey,
             ),
@@ -23,18 +24,34 @@ class MobileContactPage extends StatelessWidget {
           SizedBox(height: 8.h),
           Divider(color: Colors.grey, thickness: 2.h),
           SizedBox(height: 20.h),
-          Text(
-            'So, you\'ve ventured into the digital underworld and stumbled upon the domain of DARKLORD.\n\n'
-            'Do you have a project that needs a touch of the infernal? '
-            'Perhaps you crave a conversation with a developer who speaks '
-            'the language of both the living and the coded?\n\n'
-            'If your request is worthy of my attention, '
-            'then by all means, unleash your unholy project '
-            'details with a click!',
-            style: TextStyle(
-              fontSize: 16.sp,
-              color: Colors.grey,
-              height: 1.6,
+          
+          // Description text
+          RichText(
+            text: TextSpan(
+              style: TextStyle(
+                fontSize: 16.sp,
+                color: Colors.grey,
+                height: 1.6,
+              ),
+              children: const <TextSpan>[
+                TextSpan(
+                  text: 'So, you\'ve ventured into the digital underworld and stumbled upon the domain of DARKLORD.\n\n',
+                ),
+                TextSpan(
+                  text: 'Do you have a project that needs a touch of the infernal?'
+                      ' Perhaps you crave a conversation with a developer who speaks '
+                      'the language of both the living and the coded?\n\n',
+                  style: TextStyle(fontWeight: FontWeight.w500, height: 1.6),
+                ),
+                TextSpan(
+                  text: 'If your request is worthy of my attention, '
+                      'then by all means, unleash your unholy project '
+                      'details with a click! But heed this warning: only '
+                      'the worthy shall receive a response (and by "worthy," '
+                      'I mean those with interesting projects, not just free pizza coupons).',
+                  style: TextStyle(fontWeight: FontWeight.w500),
+                ),
+              ],
             ),
           ),
           SizedBox(height: 30.h),

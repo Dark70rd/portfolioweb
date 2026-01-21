@@ -1,9 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+// ignore: library_private_types_in_public_api
 class AnimatedTextWidget extends StatefulWidget {
   const AnimatedTextWidget({super.key});
 

@@ -83,7 +83,7 @@ class ProjectShowcase extends StatelessWidget {
             alignment: Alignment.center,
             height: 0.18.sh,
             width: 0.35.sw,
-            color: Colors.grey.shade900.withOpacity(1.0),
+            color: Colors.grey.shade900.withValues(alpha: 1.0),
             child: Wrap(
               alignment: WrapAlignment.center,
               children: [
@@ -161,7 +161,7 @@ class ProjectShowcase extends StatelessWidget {
               children: [
                 IconButton(
                   icon: const FaIcon(FontAwesomeIcons.github),
-                  color: Colors.white.withOpacity(0.3),
+                  color: Colors.white.withValues(alpha: 0.3),
                   onPressed: () async {
                     final uri = Uri.parse(githubLink);
                     if (await canLaunchUrl(uri)) {

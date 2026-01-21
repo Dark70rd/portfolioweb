@@ -14,25 +14,51 @@ class MobileShowcasePage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            'Projects',
-            style: TextStyle(
-              fontSize: 32.sp,
-              fontWeight: FontWeight.bold,
-              color: Colors.grey,
-            ),
+          // Header
+          Row(
+            children: [
+              Flexible(
+                child: Text(
+                  'Behold! My Infernal Creations... (or Maybe Not, Still Under Construction)',
+                  style: TextStyle(
+                    fontSize: 24.sp,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.grey,
+                  ),
+                ),
+              ),
+            ],
           ),
           SizedBox(height: 8.h),
           Divider(color: Colors.grey, thickness: 2.h),
           SizedBox(height: 20.h),
-          Text(
-            'Mortals, gaze upon the unholy portfolio of DARKLORD! '
-            '(Okay, maybe "unholy" is a bit much. Still under construction, '
-            'like a haunted house on a budget.)',
-            style: TextStyle(
-              fontSize: 16.sp,
-              color: Colors.grey,
-              height: 1.6,
+          
+          // Description text
+          RichText(
+            text: TextSpan(
+              style: TextStyle(
+                fontSize: 16.sp,
+                color: Colors.grey,
+                height: 1.6,
+              ),
+              children: const <TextSpan>[
+                TextSpan(
+                  text: 'Mortals, gaze upon the unholy portfolio of DARKLORD! '
+                      '(Okay, maybe "unholy" is a bit much. Still under construction, '
+                      'like a haunted house on a budget.) But fear not, '
+                      'for what these projects lack in quantity, they make up for in sheer demonic… brilliance.'
+                      '\n\n',
+                  style: TextStyle(fontWeight: FontWeight.w500, height: 1.6),
+                ),
+                TextSpan(
+                  text: '\n\n'
+                      'Here you\'ll find a glimpse of my coding conquests, '
+                      'a testament to my skill that\'s sure to tantalize your '
+                      'retinas (or send shivers down your spine, depending on '
+                      'your tolerance for the dark arts). Dive in, if you dare!',
+                  style: TextStyle(fontWeight: FontWeight.w500),
+                ),
+              ],
             ),
           ),
           SizedBox(height: 30.h),

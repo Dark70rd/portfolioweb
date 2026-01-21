@@ -1,9 +1,7 @@
 import 'dart:async';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:flutter/widgets.dart';
 import 'package:my_portfolio_web/contact_view_page.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'title_page.dart';
@@ -81,7 +79,7 @@ class NoisePainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
-      ..color = Colors.grey.withOpacity(AppConstants.noiseOpacity);
+      ..color = Colors.grey.withValues(alpha: AppConstants.noiseOpacity);
 
     // Use progress as seed for deterministic but varied noise pattern
     final seed = (progress * 1000).toInt();
@@ -105,6 +103,7 @@ class MyPortfolioScreen extends StatefulWidget {
   const MyPortfolioScreen({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _MyPortfolioScreenState createState() => _MyPortfolioScreenState();
 }
 

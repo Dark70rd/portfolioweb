@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'page_header.dart';
 
@@ -12,7 +10,7 @@ class AboutPage extends StatelessWidget {
       children: [
         Icon(
           Icons.bolt_outlined,
-          color: const Color.fromARGB(255, 105, 90, 205).withOpacity(0.6),
+          color: const Color.fromARGB(255, 105, 90, 205).withValues(alpha: 0.6),
           size: 20.sp,
         ),
         SizedBox(
