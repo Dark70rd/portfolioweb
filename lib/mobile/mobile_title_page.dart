@@ -3,7 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 
 class MobileTitlePage extends StatefulWidget {
-  const MobileTitlePage({super.key});
+  final VoidCallback? onAnimationComplete;
+  
+  const MobileTitlePage({super.key, this.onAnimationComplete});
 
   @override
   _MobileTitlePageState createState() => _MobileTitlePageState();
@@ -38,7 +40,7 @@ class _MobileTitlePageState extends State<MobileTitlePage> {
                 ' Greetings, mortals.',
                 textStyle: TextStyle(
                   color: Colors.grey,
-                  fontSize: 18.sp,
+                  fontSize: 54.sp,
                   fontWeight: FontWeight.w300,
                 ),
               ),
@@ -59,7 +61,7 @@ class _MobileTitlePageState extends State<MobileTitlePage> {
                   'I am DARK70RD.',
                   textStyle: TextStyle(
                     color: Colors.grey,
-                    fontSize: 32.sp,
+                    fontSize: 96.sp,
                     fontWeight: FontWeight.w300,
                   ),
                 ),
@@ -80,7 +82,7 @@ class _MobileTitlePageState extends State<MobileTitlePage> {
                   'Ready to unleash your digital desires?',
                   textStyle: TextStyle(
                     color: Colors.grey,
-                    fontSize: 24.sp,
+                    fontSize: 72.sp,
                     fontWeight: FontWeight.w300,
                   ),
                 ),
@@ -95,6 +97,8 @@ class _MobileTitlePageState extends State<MobileTitlePage> {
                 setState(() {
                   showFifthAnimation = true;
                 });
+                // Notify parent that animations are complete
+                widget.onAnimationComplete?.call();
               },
               animatedTexts: [
                 TypewriterAnimatedText(
@@ -103,7 +107,7 @@ class _MobileTitlePageState extends State<MobileTitlePage> {
                   speed: const Duration(milliseconds: 15),
                   textStyle: TextStyle(
                     color: Colors.grey,
-                    fontSize: 16.sp,
+                    fontSize: 48.sp,
                     fontWeight: FontWeight.w300,
                     height: 1.5,
                   ),
@@ -130,7 +134,7 @@ class _MobileTitlePageState extends State<MobileTitlePage> {
                     'Summon Me',
                     style: TextStyle(
                       color: Colors.grey,
-                      fontSize: 16.sp,
+                      fontSize: 48.sp,
                     ),
                   ),
                 ),

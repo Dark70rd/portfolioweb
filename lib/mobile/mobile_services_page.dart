@@ -16,7 +16,7 @@ class MobileServicesPage extends StatelessWidget {
           Text(
             'Unearthing Your Digital Desires (and Making Them My Playthings)',
             style: TextStyle(
-              fontSize: 24.sp,
+              fontSize: 72.sp,
               fontWeight: FontWeight.bold,
               color: Colors.grey,
             ),
@@ -29,7 +29,7 @@ class MobileServicesPage extends StatelessWidget {
           RichText(
             text: TextSpan(
               style: TextStyle(
-                fontSize: 16.sp,
+                fontSize: 48.sp,
                 color: Colors.grey,
                 height: 1.6,
               ),

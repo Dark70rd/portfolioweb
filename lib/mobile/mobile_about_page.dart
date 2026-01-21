@@ -16,7 +16,7 @@ class MobileAboutPage extends StatelessWidget {
           Text(
             'Escaped from the Code Dungeon (But Offering Forbidden Knowledge)',
             style: TextStyle(
-              fontSize: 24.sp,
+              fontSize: 72.sp,
               fontWeight: FontWeight.bold,
               color: Colors.grey,
             ),
@@ -29,7 +29,7 @@ class MobileAboutPage extends StatelessWidget {
           RichText(
             text: TextSpan(
               style: TextStyle(
-                fontSize: 16.sp,
+                fontSize: 48.sp,
                 color: Colors.grey,
                 height: 1.6,
               ),
@@ -88,7 +88,7 @@ class MobileAboutPage extends StatelessWidget {
           Icon(
             Icons.bolt_outlined,
             color: const Color.fromARGB(255, 105, 90, 205).withValues(alpha: 0.6),
-            size: 16.sp,
+            size: 48.sp,
           ),
           SizedBox(width: 8.w),
           Flexible(
@@ -96,7 +96,7 @@ class MobileAboutPage extends StatelessWidget {
               text,
               style: TextStyle(
                 color: Colors.grey,
-                fontSize: 16.sp,
+                fontSize: 48.sp,
                 letterSpacing: 1.75,
               ),
             ),

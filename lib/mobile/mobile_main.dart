@@ -17,6 +17,7 @@ class MobilePortfolioScreen extends StatefulWidget {
 
 class _MobilePortfolioScreenState extends State<MobilePortfolioScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  bool _showOtherPages = false;
 
   @override
   Widget build(BuildContext context) {
@@ -35,12 +36,12 @@ class _MobilePortfolioScreenState extends State<MobilePortfolioScreen> {
             return Icon(
               Icons.code,
               color: Colors.grey,
-              size: 30.sp,
+              size: 90.sp,
             );
           },
         ),
         leading: IconButton(
-          icon: Icon(Icons.menu, color: Colors.grey, size: 30.sp),
+          icon: Icon(Icons.menu, color: Colors.grey, size: 90.sp),
           onPressed: () {
             _scaffoldKey.currentState?.openDrawer();
           },
@@ -63,7 +64,7 @@ class _MobilePortfolioScreenState extends State<MobilePortfolioScreen> {
                     'DARK70RD',
                     style: TextStyle(
                       color: Colors.grey,
-                      fontSize: 24.sp,
+                      fontSize: 72.sp,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -72,7 +73,7 @@ class _MobilePortfolioScreenState extends State<MobilePortfolioScreen> {
                     'Portfolio',
                     style: TextStyle(
                       color: Colors.grey.shade600,
-                      fontSize: 14.sp,
+                      fontSize: 42.sp,
                     ),
                   ),
                 ],
@@ -85,8 +86,8 @@ class _MobilePortfolioScreenState extends State<MobilePortfolioScreen> {
             _buildDrawerItem(Icons.contact_mail, 'Contact', 4),
             Divider(color: Colors.grey.shade700),
             ListTile(
-              leading: Icon(FontAwesomeIcons.github, color: Colors.grey, size: 20.sp),
-              title: Text('GitHub', style: TextStyle(color: Colors.grey, fontSize: 16.sp)),
+              leading: Icon(FontAwesomeIcons.github, color: Colors.grey, size: 60.sp),
+              title: Text('GitHub', style: TextStyle(color: Colors.grey, fontSize: 48.sp)),
               onTap: () {
                 // Add GitHub link
               },
@@ -97,12 +98,20 @@ class _MobilePortfolioScreenState extends State<MobilePortfolioScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const MobileTitlePage(),
-            const MobileAboutPage(),
-            const MobileServicesPage(),
-            const MobileShowcasePage(),
-            const MobileContactPage(),
-            const MobileFooter(),
+            MobileTitlePage(
+              onAnimationComplete: () {
+                setState(() {
+                  _showOtherPages = true;
+                });
+              },
+            ),
+            if (_showOtherPages) ...[
+              const MobileAboutPage(),
+              const MobileServicesPage(),
+              const MobileShowcasePage(),
+              const MobileContactPage(),
+              const MobileFooter(),
+            ],
           ],
         ),
       ),
@@ -111,10 +120,10 @@ class _MobilePortfolioScreenState extends State<MobilePortfolioScreen> {
 
   Widget _buildDrawerItem(IconData icon, String title, int index) {
     return ListTile(
-      leading: Icon(icon, color: Colors.grey, size: 24.sp),
+      leading: Icon(icon, color: Colors.grey, size: 72.sp),
       title: Text(
         title,
-        style: TextStyle(color: Colors.grey, fontSize: 16.sp),
+        style: TextStyle(color: Colors.grey, fontSize: 48.sp),
       ),
       onTap: () {
         Navigator.pop(context);

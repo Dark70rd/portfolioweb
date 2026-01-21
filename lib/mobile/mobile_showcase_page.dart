@@ -21,7 +21,7 @@ class MobileShowcasePage extends StatelessWidget {
                 child: Text(
                   'Behold! My Infernal Creations... (or Maybe Not, Still Under Construction)',
                   style: TextStyle(
-                    fontSize: 24.sp,
+                    fontSize: 72.sp,
                     fontWeight: FontWeight.bold,
                     color: Colors.grey,
                   ),
@@ -37,7 +37,7 @@ class MobileShowcasePage extends StatelessWidget {
           RichText(
             text: TextSpan(
               style: TextStyle(
-                fontSize: 16.sp,
+                fontSize: 48.sp,
                 color: Colors.grey,
                 height: 1.6,
               ),
@@ -126,7 +126,7 @@ class MobileShowcasePage extends StatelessWidget {
                   child: Icon(
                     Icons.error_outline,
                     color: Colors.grey,
-                    size: 40.sp,
+                    size: 120.sp,
                   ),
                 ),
               );
@@ -140,7 +140,7 @@ class MobileShowcasePage extends StatelessWidget {
                 Text(
                   title,
                   style: TextStyle(
-                    fontSize: 20.sp,
+                    fontSize: 60.sp,
                     fontWeight: FontWeight.bold,
                     color: Colors.grey,
                   ),
@@ -149,7 +149,7 @@ class MobileShowcasePage extends StatelessWidget {
                 Text(
                   description,
                   style: TextStyle(
-                    fontSize: 14.sp,
+                    fontSize: 42.sp,
                     color: Colors.grey,
                     height: 1.5,
                   ),
@@ -163,7 +163,7 @@ class MobileShowcasePage extends StatelessWidget {
                         (t) => Text(
                           t,
                           style: TextStyle(
-                            fontSize: 12.sp,
+                            fontSize: 36.sp,
                             color: Colors.grey.shade400,
                           ),
                         ),
@@ -172,7 +172,7 @@ class MobileShowcasePage extends StatelessWidget {
                 ),
                 SizedBox(height: 16.h),
                 IconButton(
-                  icon: FaIcon(FontAwesomeIcons.github, size: 24.sp),
+                  icon: FaIcon(FontAwesomeIcons.github, size: 72.sp),
                   color: Colors.grey,
                   onPressed: () async {
                     final uri = Uri.parse(githubLink);
