@@ -20,20 +20,20 @@ class MobileFooter extends StatelessWidget {
               'Designed and built by Dark70rd',
               style: TextStyle(
                 color: Colors.grey,
-                fontSize: 42.sp,
+                fontSize: 92.sp,
               ),
               textAlign: TextAlign.center,
             ),
             Icon(
               Icons.bolt_outlined,
               color: const Color.fromARGB(255, 105, 90, 205).withValues(alpha: 0.6),
-              size: 48.sp,
+              size: 98.sp,
             ),
             Text(
               'Flutter',
               style: TextStyle(
                 color: Colors.grey,
-                fontSize: 42.sp,
+                fontSize: 92.sp,
               ),
             ),
           ],

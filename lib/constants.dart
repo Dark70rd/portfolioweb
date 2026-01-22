@@ -21,7 +21,7 @@ class AppConstants {
   static const double noiseOpacity = 0.25;
 
   // Contact information
-  static const String email = 'example@email.com';
+  static const String email = 'dark70rd@proton.me';
 
   // Section heights (ratios of screen height)
   static const double titleSectionHeight = 0.85;

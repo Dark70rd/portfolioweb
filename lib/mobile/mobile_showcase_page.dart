@@ -21,7 +21,7 @@ class MobileShowcasePage extends StatelessWidget {
                 child: Text(
                   'Behold! My Infernal Creations... (or Maybe Not, Still Under Construction)',
                   style: TextStyle(
-                    fontSize: 72.sp,
+                    fontSize: 122.sp,
                     fontWeight: FontWeight.bold,
                     color: Colors.grey,
                   ),
@@ -37,7 +37,7 @@ class MobileShowcasePage extends StatelessWidget {
           RichText(
             text: TextSpan(
               style: TextStyle(
-                fontSize: 48.sp,
+                fontSize: 98.sp,
                 color: Colors.grey,
                 height: 1.6,
               ),
@@ -140,7 +140,7 @@ class MobileShowcasePage extends StatelessWidget {
                 Text(
                   title,
                   style: TextStyle(
-                    fontSize: 60.sp,
+                    fontSize: 110.sp,
                     fontWeight: FontWeight.bold,
                     color: Colors.grey,
                   ),
@@ -149,7 +149,7 @@ class MobileShowcasePage extends StatelessWidget {
                 Text(
                   description,
                   style: TextStyle(
-                    fontSize: 42.sp,
+                    fontSize: 92.sp,
                     color: Colors.grey,
                     height: 1.5,
                   ),
@@ -163,7 +163,7 @@ class MobileShowcasePage extends StatelessWidget {
                         (t) => Text(
                           t,
                           style: TextStyle(
-                            fontSize: 36.sp,
+                            fontSize: 86.sp,
                             color: Colors.grey.shade400,
                           ),
                         ),
@@ -172,7 +172,7 @@ class MobileShowcasePage extends StatelessWidget {
                 ),
                 SizedBox(height: 16.h),
                 IconButton(
-                  icon: FaIcon(FontAwesomeIcons.github, size: 72.sp),
+                  icon: FaIcon(FontAwesomeIcons.github, size: 122.sp),
                   color: Colors.grey,
                   onPressed: () async {
                     final uri = Uri.parse(githubLink);
