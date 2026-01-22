@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'mobile_text_styles.dart';
 
 class MobileFooter extends StatelessWidget {
   const MobileFooter({super.key});
@@ -18,23 +19,17 @@ class MobileFooter extends StatelessWidget {
           children: [
             Text(
               'Designed and built by Dark70rd',
-              style: TextStyle(
-                color: Colors.grey,
-                fontSize: 92.sp,
-              ),
+              style: MobileTextStyles.bodyMedium,
               textAlign: TextAlign.center,
             ),
             Icon(
               Icons.bolt_outlined,
               color: const Color.fromARGB(255, 105, 90, 205).withValues(alpha: 0.6),
-              size: 98.sp,
+              size: 48.sp,
             ),
             Text(
               'Flutter',
-              style: TextStyle(
-                color: Colors.grey,
-                fontSize: 92.sp,
-              ),
+              style: MobileTextStyles.bodyMedium,
             ),
           ],
         ),

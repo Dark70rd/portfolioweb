@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'mobile_text_styles.dart';
+import 'mobile_widgets.dart';
 
 class MobileContactPage extends StatelessWidget {
   const MobileContactPage({super.key});
@@ -13,13 +15,8 @@ class MobileContactPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // Header
-          Text(
+          const HeadingText(
             'Summon DARKLORD if You Dare (But Only for Worthy Inquiries)',
-            style: TextStyle(
-              fontSize: 122.sp,
-              fontWeight: FontWeight.bold,
-              color: Colors.grey,
-            ),
           ),
           SizedBox(height: 8.h),
           Divider(color: Colors.grey, thickness: 2.h),
@@ -28,11 +25,7 @@ class MobileContactPage extends StatelessWidget {
           // Description text
           RichText(
             text: TextSpan(
-              style: TextStyle(
-                fontSize: 98.sp,
-                color: Colors.grey,
-                height: 1.6,
-              ),
+              style: MobileTextStyles.bodyBold,
               children: const <TextSpan>[
                 TextSpan(
                   text: 'So, you\'ve ventured into the digital underworld and stumbled upon the domain of DARKLORD.\n\n',
@@ -57,7 +50,7 @@ class MobileContactPage extends StatelessWidget {
           SizedBox(height: 30.h),
           SizedBox(
             width: double.infinity,
-            height: 50.h,
+            height: 70.h,
             child: OutlinedButton(
               style: OutlinedButton.styleFrom(
                 shape: const RoundedRectangleBorder(
@@ -68,10 +61,7 @@ class MobileContactPage extends StatelessWidget {
               onPressed: () {},
               child: Text(
                 'Sell Your Soul',
-                style: TextStyle(
-                  color: Colors.grey,
-                  fontSize: 98.sp,
-                ),
+                style: MobileTextStyles.label,
               ),
             ),
           ),

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'mobile_text_styles.dart';
+import 'mobile_widgets.dart';
 
 class MobileShowcasePage extends StatelessWidget {
   const MobileShowcasePage({super.key});
@@ -18,13 +20,8 @@ class MobileShowcasePage extends StatelessWidget {
           Row(
             children: [
               Flexible(
-                child: Text(
+                child: HeadingText(
                   'Behold! My Infernal Creations... (or Maybe Not, Still Under Construction)',
-                  style: TextStyle(
-                    fontSize: 122.sp,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.grey,
-                  ),
                 ),
               ),
             ],
@@ -36,18 +33,13 @@ class MobileShowcasePage extends StatelessWidget {
           // Description text
           RichText(
             text: TextSpan(
-              style: TextStyle(
-                fontSize: 98.sp,
-                color: Colors.grey,
-                height: 1.6,
-              ),
+              style: MobileTextStyles.bodyBold,
               children: const <TextSpan>[
                 TextSpan(
                   text: 'Mortals, gaze upon the unholy portfolio of DARKLORD! '
                       '(Okay, maybe "unholy" is a bit much. Still under construction, '
                       'like a haunted house on a budget.) But fear not, '
-                      'for what these projects lack in quantity, they make up for in sheer demonic… brilliance.'
-                      '\n\n',
+                      'for what these projects lack in quantity, they make up for in sheer demonic… brilliance.',
                   style: TextStyle(fontWeight: FontWeight.w500, height: 1.6),
                 ),
                 TextSpan(
@@ -139,33 +131,22 @@ class MobileShowcasePage extends StatelessWidget {
               children: [
                 Text(
                   title,
-                  style: TextStyle(
-                    fontSize: 110.sp,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.grey,
-                  ),
+                  style: MobileTextStyles.subheading,
                 ),
                 SizedBox(height: 12.h),
                 Text(
                   description,
-                  style: TextStyle(
-                    fontSize: 92.sp,
-                    color: Colors.grey,
-                    height: 1.5,
-                  ),
+                  style: MobileTextStyles.bodyMedium,
                 ),
                 SizedBox(height: 16.h),
                 Wrap(
-                  spacing: 8.w,
+                  spacing: 24.w,
                   runSpacing: 8.h,
                   children: tech
                       .map(
                         (t) => Text(
                           t,
-                          style: TextStyle(
-                            fontSize: 86.sp,
-                            color: Colors.grey.shade400,
-                          ),
+                          style: MobileTextStyles.bodySmall,
                         ),
                       )
                       .toList(),

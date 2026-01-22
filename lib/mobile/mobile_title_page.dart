@@ -122,7 +122,7 @@ class _MobileTitlePageState extends State<MobileTitlePage> {
               curve: Curves.easeIn,
               child: SizedBox(
                 width: double.infinity,
-                height: 50.h,
+                height: 70.h,
                 child: OutlinedButton(
                   style: OutlinedButton.styleFrom(
                     shape: const RoundedRectangleBorder(
