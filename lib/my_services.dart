@@ -1,7 +1,9 @@
+// Desktop "Services" section outlining capabilities and pitch.
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'page_header.dart';
 
+/// Desktop services page content container.
 class ServicePage extends StatelessWidget {
   const ServicePage({super.key});
 

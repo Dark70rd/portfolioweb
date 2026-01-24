@@ -1,6 +1,8 @@
+// Simple page section header with title and trailing divider.
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+/// Renders a section title aligned left with a divider to the right.
 class PageHeader extends StatelessWidget {
   final String title;
 

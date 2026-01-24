@@ -1,8 +1,10 @@
+// Desktop "Showcase" section listing project highlights and resources.
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'projectShowcase_model.dart';
 import 'page_header.dart';
 
+/// Desktop showcase page root. Displays project cards below header.
 class ShowcasePage extends StatefulWidget {
   const ShowcasePage({super.key});
 
@@ -10,6 +12,7 @@ class ShowcasePage extends StatefulWidget {
   State<ShowcasePage> createState() => _ShowcasePageState();
 }
 
+/// Small utility text widget for custom sizing/weight/color.
 class CustomText extends StatelessWidget {
   final String text;
   final double textsize;
@@ -101,6 +104,7 @@ class _ShowcasePageState extends State<ShowcasePage> {
             ),
           ),
           SizedBox(height: 70.h),
+          // Example project cards. Map your actual data from `ProjectShowcase` model.
           ProjectShowcase(
               imageUrl: 'https://picsum.photos/id/8/500/300/?grayscale&blur=2',
               shortDescription: 'This is a short description of the project.',

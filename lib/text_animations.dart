@@ -1,9 +1,12 @@
+// Utility animated text widget that briefly scrambles characters on hover
+// and resolves back to the original content.
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'dart:math';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // ignore: library_private_types_in_public_api
+/// Scrambles text on hover using a timer-driven animation, then restores.
 class HashAnimatedTextWidget extends StatefulWidget {
   final String text;
   final Color textcolor;
@@ -19,6 +22,7 @@ class HashAnimatedTextWidget extends StatefulWidget {
   _HashAnimatedTextWidgetState createState() => _HashAnimatedTextWidgetState();
 }
 
+/// Handles scramble logic and opacity animation for hover effect.
 class _HashAnimatedTextWidgetState extends State<HashAnimatedTextWidget>
     with SingleTickerProviderStateMixin {
   late String _scrambledText;

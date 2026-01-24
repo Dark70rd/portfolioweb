@@ -1,3 +1,8 @@
+// Entry point for the portfolio web app and desktop view implementation.
+//
+// This file wires up app-wide theming, responsive switching between
+// desktop and mobile layouts, and the desktop-only scroll/animation
+// orchestration (noise background, section fade-ins, and sidebar).
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -5,6 +10,7 @@ import 'dart:math';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:my_portfolio_web/contact_view_page.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'title_page.dart';
 import 'about_page.dart';
 import 'my_services.dart';
@@ -19,6 +25,7 @@ void main() {
   runApp(const MyPortfolioApp());
 }
 
+/// Root `MaterialApp` that applies theme and sets the responsive home.
 class MyPortfolioApp extends StatelessWidget {
   const MyPortfolioApp({super.key});
 
@@ -29,8 +36,10 @@ class MyPortfolioApp extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
+        // Note: The browser tab title on web is controlled by web/index.html's
+        // <title> tag. This `title` primarily affects native platforms.
         return MaterialApp(
-          title: 'My Portfolio',
+          title: 'DARK70RD\'s DOMAIN',
           theme: AppTheme.lightTheme,
           debugShowCheckedModeBanner: false,
           home: ResponsiveHome(),
@@ -40,6 +49,7 @@ class MyPortfolioApp extends StatelessWidget {
   }
 }
 
+/// Chooses between mobile and desktop layouts based on width.
 class ResponsiveHome extends StatelessWidget {
   const ResponsiveHome({super.key});
 
@@ -58,6 +68,7 @@ class ResponsiveHome extends StatelessWidget {
   }
 }
 
+/// Wraps a child with a `CustomPaint` noise overlay for subtle texture.
 class NoiseBackground extends StatelessWidget {
   final Widget child;
 
@@ -72,6 +83,7 @@ class NoiseBackground extends StatelessWidget {
   }
 }
 
+/// Lightweight procedural noise painter used for the background.
 class NoisePainter extends CustomPainter {
   final double progress;
 
@@ -100,6 +112,7 @@ class NoisePainter extends CustomPainter {
   }
 }
 
+/// Desktop view root scaffold containing the animated sections and sidebars.
 class MyPortfolioScreen extends StatefulWidget {
   const MyPortfolioScreen({super.key});
 
@@ -108,6 +121,7 @@ class MyPortfolioScreen extends StatefulWidget {
   _MyPortfolioScreenState createState() => _MyPortfolioScreenState();
 }
 
+/// Controls desktop-only animations, initial scroll lock, and keyboard scroll.
 class _MyPortfolioScreenState extends State<MyPortfolioScreen>
     with SingleTickerProviderStateMixin {
   late AnimationController _noiseController;
@@ -122,7 +136,7 @@ class _MyPortfolioScreenState extends State<MyPortfolioScreen>
   @override
   void initState() {
     super.initState();
-
+    // Start long-running background noise animation.
     _noiseController = AnimationController(
       duration: const Duration(seconds: 9999),
       vsync: this,
@@ -150,6 +164,8 @@ class _MyPortfolioScreenState extends State<MyPortfolioScreen>
         });
       },
     );
+    // Temporarily prevent scrolling on first load to keep the intro visible.
+    // The delay can be tuned via `AppConstants.scrollEnableDelay`.
     _scrollEnableTimer = Timer(AppConstants.scrollEnableDelay, () {
       if (mounted) {
         setState(() {
@@ -338,7 +354,9 @@ class _MyPortfolioScreenState extends State<MyPortfolioScreen>
                         RotatedBox(
                           quarterTurns: 1,
                           child: IconButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              launchUrl(Uri.parse('https://github.com/Dark70rd'));
+                            },
                             icon: const Icon(FontAwesomeIcons.github),
                             iconSize: 40.sp,
                             color: Colors.grey,

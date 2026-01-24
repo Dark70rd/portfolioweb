@@ -1,10 +1,14 @@
+// Desktop "About" section describing background and technologies.
+// Provides helper `technology()` for consistent bullet-like rows.
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'page_header.dart';
 
+/// Desktop About page content container.
 class AboutPage extends StatelessWidget {
   const AboutPage({super.key});
 
+  /// Renders a single technology item with icon and styled text.
   Widget technology(BuildContext context, String text) {
     return Row(
       children: [

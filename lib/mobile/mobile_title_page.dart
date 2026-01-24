@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class MobileTitlePage extends StatefulWidget {
   final VoidCallback? onAnimationComplete;
@@ -130,7 +131,10 @@ class _MobileTitlePageState extends State<MobileTitlePage> {
                     ),
                     side: const BorderSide(color: Colors.grey),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    launchUrl(
+                            Uri.parse('https://forms.gle/ruqL9FpSZNrNqGUz5'));
+                  },
                   child: Text(
                     'Summon Me',
                     style: TextStyle(

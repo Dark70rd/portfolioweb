@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'mobile_text_styles.dart';
 import 'mobile_widgets.dart';
 
@@ -58,14 +59,17 @@ class MobileContactPage extends StatelessWidget {
                 ),
                 side: const BorderSide(color: Colors.grey),
               ),
-              onPressed: () {},
+              onPressed: () {
+                launchUrl(
+                            Uri.parse('https://forms.gle/ruqL9FpSZNrNqGUz5'));
+              },
               child: Text(
                 'Sell Your Soul',
                 style: MobileTextStyles.label,
               ),
             ),
           ),
-          SizedBox(height: 40.h),
+          SizedBox(height: 100.h),
         ],
       ),
     );

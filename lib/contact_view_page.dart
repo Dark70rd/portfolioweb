@@ -1,7 +1,11 @@
+// Contact section containing narrative text and a call-to-action that opens
+// a Google Form for structured inquiries. Replace the forms.gle link as needed.
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'page_header.dart';
 
+/// Desktop contact view with themed copy and external form CTA.
 class ContactPageView extends StatelessWidget {
   const ContactPageView({super.key});
 
@@ -71,13 +75,16 @@ class ContactPageView extends StatelessWidget {
               child: SizedBox(
                 width: 0.1.sw,
                 height: 0.07.sh,
+                // Call-to-action button: opens external Google Form for inquiries.
                 child: OutlinedButton(
                   style: OutlinedButton.styleFrom(
                     shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.zero,
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    launchUrl(Uri.parse('https://forms.gle/ruqL9FpSZNrNqGUz5'));
+                  },
                   child: Text(
                     'Sell Your Soul',
                     style: TextStyle(
