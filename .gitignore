@@ -41,3 +41,58 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Sensitive Information & Credentials
+*.env
+.env
+.env.local
+.env.*.local
+secrets/
+config/
+*.pem
+*.key
+*.private
+
+# Unused Code
+unusedCode.txt
+
+# OS & IDE Generated Files
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.vscode/settings.json
+
+# Generated Code
+*.freezed.dart
+*.g.dart
+
+# Local Storage
+.dart_tool/
+pubspec.lock
+
+# Firebase & Services
+google-services.json
+GoogleService-Info.plist
+
+# API Keys & Tokens
+.apikeys
+tokens.json
+credentials.json
+
+# Build Outputs (except committed build/web for GH Pages)
+/build/
+/dist/
+*.apk
+*.ipa
+
+# Dependency directories
+.pub/
+/packages/
+pubspec.lock
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+
