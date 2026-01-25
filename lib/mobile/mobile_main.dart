@@ -64,7 +64,7 @@ class _MobilePortfolioScreenState extends State<MobilePortfolioScreen> {
         surfaceTintColor: Colors.transparent,
         elevation: 0,
         centerTitle: false,
-        titleSpacing: 36.w,
+        titleSpacing: 28.w,
         title: Image.asset(
           'assets/images/dark-bg-icon-crop.png',
           fit: BoxFit.cover,
@@ -129,7 +129,7 @@ class _MobilePortfolioScreenState extends State<MobilePortfolioScreen> {
             bottom: 0,
             child: Container(
               height: double.infinity,
-              width: 180.w,
+              width: 170.w,
               color: Colors.transparent,
               child: Padding(
                 padding: EdgeInsets.only(left: 8.0.w, right: 8.0.w),
@@ -139,25 +139,26 @@ class _MobilePortfolioScreenState extends State<MobilePortfolioScreen> {
                     Spacer(),
                     // GitHub icon button
                     IconButton(
+                      padding: EdgeInsets.zero,
                       onPressed: () {
                         launchUrl(Uri.parse('https://github.com/Dark70rd'));
                       },
                       icon: const FaIcon(FontAwesomeIcons.github),
-                      iconSize: 68.sp,
+                      iconSize: 90.sp,
                       color: Colors.grey.shade500,
                     ),
-                    SizedBox(height: 24.h),
+                    SizedBox(height: 16.h),
                     // Email icon button
                     CircleAvatar(
                       backgroundColor: Colors.grey.shade500,
-                      radius: 38.sp,
+                      radius: 48.sp,
                       child: IconButton(
                         padding: EdgeInsets.zero,
                         onPressed: () {
                           launchUrl(Uri.parse('mailto:dark70rd@proton.me'));
                         },
                         icon: const Icon(Icons.email),
-                        iconSize: 58.sp,
+                        iconSize: 78.sp,
                         color: Colors.black,
                       ),
                     ),
@@ -165,12 +166,12 @@ class _MobilePortfolioScreenState extends State<MobilePortfolioScreen> {
                     // About page button
                     CircleAvatar(
                       backgroundColor: Colors.grey.shade500,
-                      radius: 38.sp,
+                      radius: 48.sp,
                       child: IconButton(
                         padding: EdgeInsets.zero,
                         onPressed: () => _scrollToSection(_aboutKey),
-                        icon: const Icon(Icons.info_outlined),
-                        iconSize: 58.sp,
+                        icon: const Icon(Icons.electric_bolt_sharp),
+                        iconSize: 78.sp,
                         color: Colors.black,
                       ),
                     ),
@@ -178,12 +179,12 @@ class _MobilePortfolioScreenState extends State<MobilePortfolioScreen> {
                     // Services page button
                     CircleAvatar(
                       backgroundColor: Colors.grey.shade500,
-                      radius: 38.sp,
+                      radius: 48.sp,
                       child: IconButton(
                         padding: EdgeInsets.zero,
                         onPressed: () => _scrollToSection(_servicesKey),
-                        icon: const Icon(Icons.electric_bolt_sharp),
-                        iconSize: 58.sp,
+                        icon: const Icon(Icons.build_sharp),
+                        iconSize: 78.sp,
                         color: Colors.black,
                       ),
                     ),
@@ -191,12 +192,12 @@ class _MobilePortfolioScreenState extends State<MobilePortfolioScreen> {
                     // Showcase page button
                     CircleAvatar(
                       backgroundColor: Colors.grey.shade500,
-                      radius: 38.sp,
+                      radius: 48.sp,
                       child: IconButton(
                         padding: EdgeInsets.zero,
                         onPressed: () => _scrollToSection(_showcaseKey),
                         icon: const Icon(Icons.data_object_sharp),
-                        iconSize: 58.sp,
+                        iconSize: 78.sp,
                         color: Colors.black,
                       ),
                     ),
@@ -204,12 +205,12 @@ class _MobilePortfolioScreenState extends State<MobilePortfolioScreen> {
                     // Contact page button
                     CircleAvatar(
                       backgroundColor: Colors.grey.shade500,
-                      radius: 38.sp,
+                      radius: 48.sp,
                       child: IconButton(
                         padding: EdgeInsets.zero,
                         onPressed: () => _scrollToSection(_contactKey),
                         icon: const Icon(Icons.chat_outlined),
-                        iconSize: 58.sp,
+                        iconSize: 78.sp,
                         color: Colors.black,
                       ),
                     ),

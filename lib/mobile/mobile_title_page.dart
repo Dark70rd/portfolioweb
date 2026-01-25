@@ -62,7 +62,7 @@ class _MobileTitlePageState extends State<MobileTitlePage> {
                   'I am DARK70RD.',
                   textStyle: TextStyle(
                     color: Colors.grey,
-                    fontSize: 176.sp,
+                    fontSize: 204.sp,
                     fontWeight: FontWeight.w300,
                   ),
                 ),
@@ -81,6 +81,7 @@ class _MobileTitlePageState extends State<MobileTitlePage> {
               animatedTexts: [
                 TypewriterAnimatedText(
                   'Ready to unleash your digital desires?',
+                  speed: Duration(milliseconds: 15),
                   textStyle: TextStyle(
                     color: Colors.grey,
                     fontSize: 102.sp,

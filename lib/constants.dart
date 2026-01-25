@@ -19,7 +19,7 @@ class AppConstants {
 
   /// Initial delay before enabling user scrolling on desktop landing.
   /// This prevents accidental scroll during intro; reduce to shorten wait.
-  static const Duration scrollEnableDelay = Duration(seconds: 2);
+  static const Duration scrollEnableDelay = Duration(seconds: 10);
 
   /// Duration used by section fade-in animations on desktop.
   static const Duration fadeAnimationDuration = Duration(milliseconds: 1000);
